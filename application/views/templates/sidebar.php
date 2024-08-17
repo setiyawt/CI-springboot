@@ -55,6 +55,20 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="<?= base_url('proyek') ?>" class="nav-link active">
+                  <i class="nav-icon fas fa-building"></i>
+                  <p>Proyek</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="<?= base_url('lokasi') ?>" class="nav-link active">
+                  <i class="nav-icon fas fa-street-view"></i>
+                  <p>Lokasi</p>
+                </a>
+              </li>
+
               
             </ul>
           </nav>

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Proyek_model extends CI_Model {
+class Proyek_Lokasi_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
@@ -53,5 +53,15 @@ class Proyek_model extends CI_Model {
     public function delete($where, $table) {
         $this->db->where($where);
         return $this->db->delete($table);
+    }
+
+    public function proyek($table) {
+        if (empty($table)) {
+            log_message('error', 'Table name is empty.');
+            return false;
+        }
+
+        return $this->db->get($table);    
+       
     }
 }

@@ -6,13 +6,13 @@ class Dashboard extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Proyek_model');
+        $this->load->model('Proyek_Lokasi_model');
         $this->load->library('form_validation');
     }
 
     public function index() {
         $data['title'] = 'Dashboard';
-        $data['proyek'] = $this->Proyek_model->get_data('proyek');
+        $data['proyek'] = $this->Proyek_Lokasi_model->get_data('proyek');
         log_message('debug', 'Data Proyek: ' . print_r($data['proyek'], true));
 
 
@@ -24,10 +24,10 @@ class Dashboard extends CI_Controller {
 
     public function tambah() {
         
-        $data['title'] = 'Tambah Data';
+        $data['title'] = 'Tambah';
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
-        $this->load->view('create');
+        $this->load->view('create', $data);
         $this->load->view('templates/footer');
     }
 
@@ -56,13 +56,13 @@ class Dashboard extends CI_Controller {
             );
     
             // Insert data ke tabel lokasi dan dapatkan ID-nya
-            $lokasi_id = $this->Proyek_model->insert_lokasi($data_lokasi);
+            $lokasi_id = $this->Proyek_Lokasi_model->insert_lokasi($data_lokasi);
     
             // Tambahkan lokasi_id ke data proyek
             $data_proyek['lokasi_id'] = $lokasi_id;
     
             // Masukkan data ke tabel proyek
-            $this->Proyek_model->insert_data($data_proyek, 'proyek');
+            $this->Proyek_Lokasi_model->insert_data($data_proyek, 'proyek');
     
             $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             Data berhasil ditambahkan!
@@ -76,7 +76,7 @@ class Dashboard extends CI_Controller {
 
     public function edit($id) {
         $data['title'] = 'Edit Data';
-        $data['pyk'] = $this->Proyek_model->get_proyek_by_id($id);
+        $data['pyk'] = $this->Proyek_Lokasi_model->get_proyek_by_id($id);
         
         if (!$data['pyk']) {
             // Jika data tidak ditemukan, redirect ke halaman daftar proyek
@@ -115,8 +115,8 @@ class Dashboard extends CI_Controller {
                 'provinsi' => $this->input->post('provinsi')
             );
     
-            $update_lokasi = $this->Proyek_model->update_lokasi($data_lokasi);
-            $update_proyek = $this->Proyek_model->update_data($data_proyek, 'proyek');
+            $update_lokasi = $this->Proyek_Lokasi_model->update_lokasi($data_lokasi);
+            $update_proyek = $this->Proyek_Lokasi_model->update_data($data_proyek, 'proyek');
     
             if ($update_lokasi && $update_proyek) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -137,6 +137,17 @@ class Dashboard extends CI_Controller {
         }
     }
     
+    public function proyek() {
+        
+        $data['title'] = 'Data Proyek';
+        $data['proyek'] = $this->Proyek_Lokasi_model->get_data('proyek');
+        log_message('debug', 'Data Proyek: '. print_r($data['proyek'], true));
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('proyek/dashboard', $data);
+        $this->load->view('templates/footer');
+    }
 
 
     public function _rules() {
@@ -157,7 +168,7 @@ class Dashboard extends CI_Controller {
     public function delete($id) {
         $where = array('id' => $id);
 
-        $this->Proyek_model->delete($where, 'proyek');
+        $this->Proyek_Lokasi_model->delete($where, 'proyek');
         $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
         Data berhasil dihapus!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
