@@ -21,4 +21,13 @@ class Proyek_model extends CI_Model {
         return $query->result();
     }
     
+    public function insert_data($data, $table) {
+        return $this->db->insert($table, $data);
+        
+    }
+
+    public function insert_lokasi($data) {
+        $this->db->insert('lokasi', $data);
+        return $this->db->insert_id();
+    }
 }

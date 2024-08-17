@@ -5,7 +5,8 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-            <form role="form" id="quickForm">
+            <form role="form" id="quickForm" action="<?= base_url('dashboard/tambah_aksi') ?>" method="POST">
+
                 <div class="card-body">
                     <div class="form-group">
                         <label for="text">Client</label>
@@ -25,11 +26,11 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Tanggal Mulai</label>
-                        <input type="text" name="tgl_mulai" class="form-control" value="<?php echo isset($pyk->tgl_mulai) ? $pyk->tgl_mulai : ''; ?>" >
+                        <input type="datetime-local" name="tgl_mulai" class="form-control" value="<?php echo isset($pyk->tgl_mulai) ? $pyk->tgl_mulai : ''; ?>" >
                     </div>
                     <div class="form-group">
                         <label for="text">Tanggal Selesai</label>
-                        <input type="text" name="tgl_selesai" class="form-control" value="<?php echo isset($pyk->tgl_selesai) ? $pyk->tgl_selesai : ''; ?>" >
+                        <input type="datetime-local" name="tgl_selesai" class="form-control" value="<?php echo isset($pyk->tgl_selesai) ? $pyk->tgl_selesai : ''; ?>" >
                     </div>
                     <div class="form-group">
                         <label for="text">Kota</label>
