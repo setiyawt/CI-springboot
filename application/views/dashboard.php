@@ -70,10 +70,10 @@
                         <td><?php echo $pyk->negara; ?></td>
                         <td><?php echo $pyk->provinsi; ?></td>
 
-                            <td>
-                                <a href="#"class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>  <!-- Add a delete button here -->
-                            </td>
+                        <td>
+                            <a href="<?= base_url('dashboard/edit/' . $pyk->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                            <a href="<?= base_url('dashboard/delete/' . $pyk->id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i class="fas fa-trash"></i></a> 
+                        </td>
                         </tr>
                     </tbody>
                 <?php endforeach ?>

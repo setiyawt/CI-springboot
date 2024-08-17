@@ -5,7 +5,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-            <form role="form" id="quickForm" action="<?= base_url('dashboard/tambah_aksi') ?>" method="POST">
+            <form role="form" id="quickForm" action="<?= base_url('dashboard/tambah_aksi/') ?>" method="POST">
 
                 <div class="card-body">
                     <div class="form-group">

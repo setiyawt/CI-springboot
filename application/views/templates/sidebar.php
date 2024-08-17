@@ -55,12 +55,7 @@
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="<?= base_url('create') ?>" class="nav-link active">
-                  <i class="nav-icon fas fa-plus"></i>
-                  <p>Tambah Data</p>
-                </a>
-              </li>
+              
             </ul>
           </nav>
           <!-- /.sidebar-menu -->

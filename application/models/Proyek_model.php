@@ -30,4 +30,28 @@ class Proyek_model extends CI_Model {
         $this->db->insert('lokasi', $data);
         return $this->db->insert_id();
     }
+
+    public function update_data($data, $table) {
+        $this->db->where('id', $data['id']);
+        return $this->db->update($table, $data);
+    }
+    
+    public function update_lokasi($data) {
+        $this->db->where('id', $data['id']);
+        return $this->db->update('lokasi', $data);
+    }
+    
+    public function get_proyek_by_id($id) {
+        $this->db->select('proyek.*, lokasi.nama_lokasi, lokasi.negara, lokasi.provinsi, lokasi.kota');
+        $this->db->from('proyek');
+        $this->db->join('lokasi', 'proyek.lokasi_id = lokasi.id', 'left');
+        $this->db->where('proyek.id', $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    public function delete($where, $table) {
+        $this->db->where($where);
+        return $this->db->delete($table);
+    }
 }
