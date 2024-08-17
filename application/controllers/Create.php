@@ -11,4 +11,5 @@ class Create extends CI_Controller {
         $this->load->view('create', $data);
         $this->load->view('templates/footer');
     }
+    
 }

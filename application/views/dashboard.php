@@ -1,20 +1,24 @@
 <style>
+    
     .table-container {
         overflow-x: auto; /* Enable horizontal scrolling */
         -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         margin: 20px 0; /* Optional: Adds some space around the container */
+         /* Optional: Adjusts the width of the container to fit the viewport */
+        
     }
 
     table {
         width: 100%; /* Ensures the table uses the full width of its container */
-        min-width: 1200px; /* Adjust this value to fit all columns */
+        min-width: 100px; /* Adjust this value to fit all columns */
         border-collapse: collapse; /* Avoids double borders */
     }
 
     th, td {
-        padding: 10px; /* Adds padding inside table cells */
-        text-align: left; /* Aligns text to the left */
-        border: 1px solid #ddd; /* Light grey border for table cells */
+        padding: 12px 15px; /* Sedikit memperbesar padding */
+        text-align: left;
+        border: 1px solid #ddd;
+        white-space: nowrap; /* Mencegah pemecahan teks */
     }
 
     th {
@@ -25,7 +29,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">DataTable with minimal features & hover style</h3>
+        <a href="<?= base_url('create') ?>" class= "btn btn-primary"><i class= "fas fa=plus"></i>Tambah Data</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
