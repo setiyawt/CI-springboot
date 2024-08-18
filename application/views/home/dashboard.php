@@ -1,36 +1,35 @@
-
+<?= $this->session->flashdata('message');?>
 <style>
     
     .table-container {
-        overflow-x: auto; /* Enable horizontal scrolling */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-        margin: 20px 0; /* Optional: Adds some space around the container */
-         /* Optional: Adjusts the width of the container to fit the viewport */
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+        margin: 20px 0; 
         
     }
 
     table {
-        width: 100%; /* Ensures the table uses the full width of its container */
-        min-width: 100px; /* Adjust this value to fit all columns */
-        border-collapse: collapse; /* Avoids double borders */
+        width: 100%;
+        min-width: 100px; 
+        border-collapse: collapse; 
     }
 
     th, td {
-        padding: 12px 15px; /* Sedikit memperbesar padding */
+        padding: 12px 15px;
         text-align: left;
         border: 1px solid #ddd;
-        white-space: nowrap; /* Mencegah pemecahan teks */
+        white-space: nowrap; 
     }
 
     th {
-        background-color: #f4f4f4; /* Light background for header cells */
+        background-color: #f4f4f4;
     }
 </style>
 
 
 <div class="card">
     <div class="card-header">
-        <a href="<?= base_url('create') ?>" class= "btn btn-primary"><i class= "fas fa=plus"></i>Tambah Data</a>
+        <a href="<?= base_url('dashboard/create') ?>" class= "btn btn-primary"><i class= "fas fa=plus"></i>Tambah Data</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -53,11 +52,11 @@
                     <th>Aksi</th>
                 </tr>
                 </thead>
-                <?php $no =1;
+                <?php
                 foreach ($proyek as $pyk) : ?>
                     <tbody>
                         <tr>
-                        <td><?php echo $no++; ?></td>
+                        <td><?php echo $pyk->id; ?></td>
                         <td><?php echo $pyk->client; ?></td>
                         <td><?php echo $pyk->keterangan; ?></td>
                         <td><?php echo $pyk->nama_proyek; ?></td>

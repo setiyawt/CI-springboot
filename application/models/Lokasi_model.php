@@ -20,5 +20,19 @@ class Lokasi_model extends CI_Model {
     public function insert_data($data, $table) {
         $this->db->insert($table, $data);
     }
+
+    public function get_lokasi_by_id($id) {
+        $this->db->where('id', $id);
+        return $this->db->get('lokasi')->row();
+    }
+
+    public function update_data($data, $table) {
+        $this->db->where('id', $data['id']);
+        return $this->db->update($table, $data);
+    }
     
+    public function delete($where, $table) {
+        $this->db->where($where);
+        return $this->db->delete($table);
+    }
 }

@@ -55,13 +55,10 @@ class Proyek_Lokasi_model extends CI_Model {
         return $this->db->delete($table);
     }
 
-    public function proyek($table) {
-        if (empty($table)) {
-            log_message('error', 'Table name is empty.');
-            return false;
-        }
-
-        return $this->db->get($table);    
-       
+    public function isLokasiUsed($lokasi_id) {
+        $this->db->where('lokasi_id', $lokasi_id);
+        $query = $this->db->get('proyek');
+        return $query->num_rows() > 0;
     }
+
 }

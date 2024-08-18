@@ -1,3 +1,4 @@
+<?= $this->session->flashdata('message');?>
 
 <style>
     
@@ -30,7 +31,7 @@
 
 <div class="card">
     <div class="card-header">
-        <a href="<?= base_url('proyek/create') ?>" class= "btn btn-primary"><i class= "fas fa=plus"></i>Tambah Data</a>
+        <a href="<?= base_url('lokasi/create') ?>" class= "btn btn-primary"><i class= "fas fa=plus"></i>Tambah Data</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -38,32 +39,29 @@
             <table>
                 <thead>
                 <tr>
-                    <th>ID Proyek</th>
-                    <th>Client</th>
-                    <th>Keterangan</th>
-                    <th>Nama Proyek</th>
-                    <th>Pimpinan Proyek</th>
-                    <th>Tgl Mulai</th>
-                    <th>Tgl Selesai</th>
+                    <th>ID Lokasi</th>
+                    <th>Kota</th>
+                    <th>Nama Lokasi</th>
+                    <th>Negara</th>
+                    <th>Provinsi</th>
                     
                     <th>Aksi</th>
                 </tr>
                 </thead>
-                <?php $no =1;
-                foreach ($proyek as $pyk) : ?>
+                <?php
+                foreach ($lokasi as $lks) : ?>
                     <tbody>
                         <tr>
-                        <td><?php echo $no++; ?></td>
-                        <td><?php echo $pyk->client; ?></td>
-                        <td><?php echo $pyk->keterangan; ?></td>
-                        <td><?php echo $pyk->nama_proyek; ?></td>
-                        <td><?php echo $pyk->pimpinan_proyek; ?></td>
-                        <td><?php echo $pyk->tgl_mulai; ?></td>
-                        <td><?php echo $pyk->tgl_selesai; ?></td>
+                        <td><?php echo $lks->id; ?></td>
+                        <td><?php echo $lks->kota; ?></td>
+                        <td><?php echo $lks->nama_lokasi; ?></td>
+                        <td><?php echo $lks->negara; ?></td>
+                        <td><?php echo $lks->provinsi; ?></td>
+                        
 
                         <td>
-                            <a href="<?= base_url('proyek/edit/' . $pyk->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                            <a href="<?= base_url('proyek/delete/' . $pyk->id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i class="fas fa-trash"></i></a> 
+                            <a href="<?= base_url('lokasi/edit/' . $lks->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                            <a href="<?= base_url('lokasi/delete/' . $lks->id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i class="fas fa-trash"></i></a> 
                         </td>
                         </tr>
                     </tbody>
